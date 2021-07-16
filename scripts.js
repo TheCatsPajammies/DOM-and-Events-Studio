@@ -22,14 +22,61 @@ let landButton = document.getElementById("landing");
 let rocket = document.getElementById("rocket-picture");
 let abortButton = document.getElementById("missionAbort");
 
-let upButton = document.getElementById("move-up");
-let downButton = document.getElementById("move-down");
-let leftButton = document.getElementById("move-left");
-let rightButton = document.getElementById("move-right");
+let upButton = document.getElementById("up");
+let downButton = document.getElementById("down");
+let leftButton = document.getElementById("left");
+let rightButton = document.getElementById("right");
 
 let currentFlightStatus = document.getElementById("flightStatus");
 let skyColor = document.getElementById("shuttleBackground");
 let shuttleHeight = document.getElementById("spaceShuttleHeight");
+
+let leftTracker = 0;
+let topTracker = 0;
+
+
+
+upButton.addEventListener('click', function() {
+    let myHeight = document.getElementById('spaceShuttleHeight').innerText
+    myHeight = Number(myHeight) + 10000;
+    document.getElementById('spaceShuttleHeight').innerText = myHeight
+    
+    topTracker = topTracker - 10;
+    
+    rocket.setAttribute("style", "top: " + topTracker + "px; position: relative;");
+});
+
+downButton.addEventListener('click', function() {
+    let myHeight = document.getElementById('spaceShuttleHeight').innerText
+    myHeight = Number(myHeight) - 10000;
+    document.getElementById('spaceShuttleHeight').innerText = myHeight
+    
+    topTracker = topTracker + 10;
+    
+    rocket.setAttribute("style", "top: " + topTracker + "px; position: relative;");
+});
+
+leftButton.addEventListener('click', function() {
+    let myHeight = document.getElementById('spaceShuttleHeight').innerText
+    myHeight = Number(myHeight) - 10000;
+    document.getElementById('spaceShuttleHeight').innerText = myHeight
+    
+    leftTracker = leftTracker - 10;
+    
+    rocket.setAttribute("style", "left: " + leftTracker + "px; position: relative;");
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 window.addEventListener('load', function() {
@@ -40,6 +87,8 @@ window.addEventListener('load', function() {
     this.document.getElementById('landing').addEventListener('click', askForLanding); // landButton
 
     this.document.getElementById('missionAbort').addEventListener('click', abortMission); // abortButton
+
+    
 })
 
 function askForLaunch() {
@@ -53,17 +102,12 @@ function askForLaunch() {
    }
 }
 
-// launchButton.addEventListener("click", askForLaunch);
-
 function askForLanding() {
     alert("The shuttle is landing. Landing gear engaged.");
     currentFlightStatus.innerText = "The shuttle has landed.";
     skyColor.style="background-color: green";
     shuttleHeight.innerText = 0;
 }
-
-// landButton.addEventListener("click", askForLanding);
-
 
 function abortMission() {
     let response = window.confirm("Confirm that you want to abort the mission.");
@@ -76,5 +120,5 @@ function abortMission() {
     }
 }
 
-// abortButton.addEventListener("click", abortMission);
+
 

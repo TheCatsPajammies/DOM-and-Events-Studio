@@ -58,13 +58,25 @@ downButton.addEventListener('click', function() {
 
 leftButton.addEventListener('click', function() {
     let myHeight = document.getElementById('spaceShuttleHeight').innerText
-    myHeight = Number(myHeight) - 10000;
+    //myHeight = Number(myHeight) - 10000;
     document.getElementById('spaceShuttleHeight').innerText = myHeight
     
     leftTracker = leftTracker - 10;
     
     rocket.setAttribute("style", "left: " + leftTracker + "px; position: relative;");
 });
+
+rightButton.addEventListener('click', function() {
+    let myHeight = document.getElementById('spaceShuttleHeight').innerText
+    //myHeight = Number(myHeight) - 10000;
+    document.getElementById('spaceShuttleHeight').innerText = myHeight
+    
+    leftTracker = leftTracker + 10;
+    
+    rocket.setAttribute("style", "left: " + leftTracker + "px; position: relative;");
+});
+
+
 
 
 

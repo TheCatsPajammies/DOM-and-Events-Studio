@@ -20,13 +20,13 @@ If you are done with the above and have some time left during class, there are a
 let launchButton = document.getElementById("takeoff"); 
 let landButton = document.getElementById("landing");
 let rocket = document.getElementById("rocket-picture");
+let abortButton = document.getElementById("missionAbort");
 
 let upButton = document.getElementById("move-up");
 let downButton = document.getElementById("move-down");
 let leftButton = document.getElementById("move-left");
 let rightButton = document.getElementById("move-right");
 
-let abortButton = document.getElementById("missionAbort");
 let currentFlightStatus = document.getElementById("flightStatus");
 let skyColor = document.getElementById("shuttleBackground");
 let shuttleHeight = document.getElementById("spaceShuttleHeight");
@@ -35,11 +35,11 @@ let shuttleHeight = document.getElementById("spaceShuttleHeight");
 window.addEventListener('load', function() {
     console.log('LOADED');
     
-    this.document.getElementById('takeoff').addEventListener('click', askForLaunch);
+    this.document.getElementById('takeoff').addEventListener('click', askForLaunch); // launchButton
 
-    this.document.getElementById('landing').addEventListener('click', askForLanding);
+    this.document.getElementById('landing').addEventListener('click', askForLanding); // landButton
 
-    this.document.getElementById('missionAbort').addEventListener('click', abortMission);
+    this.document.getElementById('missionAbort').addEventListener('click', abortMission); // abortButton
 })
 
 function askForLaunch() {
